@@ -6,6 +6,7 @@ import ListItemText from '@mui/material/ListItemText'
 import ChevronRight from '@mui/icons-material/ChevronRight'
 
 import { categories } from '../database/categories.json'
+import Icon from './Icon'
 
 interface Category {
   id: number,
@@ -30,7 +31,7 @@ function Menu() {
 
 	return (
 		<List
-			sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+			sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', height: '100vh' }}
 			component='nav'
 			aria-labelledby='nested-list-subheader'
 			subheader={
@@ -45,7 +46,7 @@ function Menu() {
 				<>
 					<ListItemButton key={category.id}>
 						<ListItemIcon>
-							<ChevronRight></ChevronRight>
+							<Icon icon={category.icon}></Icon>
 						</ListItemIcon>
 						<ListItemText primary={category.name} />
 					</ListItemButton>
