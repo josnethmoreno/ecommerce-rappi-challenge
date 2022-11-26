@@ -1,9 +1,11 @@
 import Menu from './components/Menu'
 
+import { categories } from './database/categories.json'
+
 function App() {
 	return (
 		<div className='App' style={{ backgroundColor: '#fafafa', height: '100vh' }}>
-			<Menu></Menu>
+			<Menu categories={categories}></Menu>
 		</div>
 	)
 }

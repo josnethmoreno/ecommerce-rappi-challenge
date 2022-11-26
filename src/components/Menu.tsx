@@ -3,32 +3,22 @@ import ListSubheader from '@mui/material/ListSubheader'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import ChevronRight from '@mui/icons-material/ChevronRight'
-
-import { categories } from '../database/categories.json'
 import Icon from './Icon'
+import ChevronRight from '@mui/icons-material/ChevronRight'
+import {LocalDrink, BreakfastDining, DinnerDining, WineBar} from '@mui/icons-material'
 
-interface Category {
+type Category = {
   id: number,
   name: string,
+	icon: string,
   sublevels?: Category[]
 }
 
-function Menu() {
+type MenuProps = {
+  categories: Category[]
+}
 
-  interface CreateListProps {
-    categories: Category[]
-  }
-
-  const createListNested = ({categories}: CreateListProps) => {
-    <List
-			sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-			component='nav'
-			aria-labelledby='nested-list-subheader'
-		>
-    </List>
-  }
-
+function Menu({categories}: MenuProps) {
 	return (
 		<List
 			sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', height: '100vh' }}
@@ -43,14 +33,14 @@ function Menu() {
 			}
 		>
 			{categories.map((category) => (
-				<>
-					<ListItemButton key={category.id}>
+				<div key={category.id}>
+					<ListItemButton>
 						<ListItemIcon>
-							<Icon icon={category.icon}></Icon>
+							<Icon name={category.icon}></Icon>
 						</ListItemIcon>
 						<ListItemText primary={category.name} />
 					</ListItemButton>
-				</>
+				</div>
 			))}
 		</List>
 	)

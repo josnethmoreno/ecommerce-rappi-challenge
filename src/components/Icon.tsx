@@ -1,16 +1,18 @@
-import {LocalDrink, BreakfastDining, DinnerDining, WineBar} from '@mui/icons-material'
+import { LocalDrink, BreakfastDining, DinnerDining, WineBar } from '@mui/icons-material'
+import { SvgIconTypeMap } from '@mui/material'
 
-interface IconsProps {
-  icon: string
-}
-
-function Icon({icon}: IconsProps) {
-  const SpecificIconProps = {
-    icon: icon
+function Icon(props) {
+  const { name } = props
+  const icons = {
+    LocalDrink, 
+    BreakfastDining, 
+    DinnerDining, 
+    WineBar 
   }
-  const SpecificIcon =  icon
+
+  const TheIcon = icons[name]
   return (
-    <SpecificIcon icon={props.Icon} ></SpecificIcon>
+    <TheIcon {...props}/>
   )
 }
 
